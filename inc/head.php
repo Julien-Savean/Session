@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="assets/styles.css"/>
 </head>
 <body>
+<?php session_start(); ?>
 <header>
     <!-- MENU ENTETE -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -37,6 +38,7 @@
                     <li><a href="#">Chocolates chips</a></li>
                     <li><a href="#">Nuts</a></li>
                     <li><a href="#">Gluten full</a></li>
+                    <li><a href="<?php if(empty($_SESSION)){echo "login.php";} else {echo "logout.php";}?>"><?php if(empty($_SESSION)){echo "Log In";} else {echo "Log Out";}?></a></li>
                     <li>
                         <a href="/cart.php" class="btn btn-warning navbar-btn">
                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
@@ -47,7 +49,7 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <div class="container-fluid text-right">
-        <strong>Hello Wilder !</strong>
-    </div>
+    <h3 class="container-fluid text-right">
+        <strong>Hello <?php if(empty($_SESSION)){echo "wilder";} else {echo $_SESSION['login'];}?> !</strong>
+    </h3>
 </header>
